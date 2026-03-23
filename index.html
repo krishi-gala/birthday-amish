@@ -274,7 +274,11 @@ body {
   pointer-events:none;
 }
 #msg-panel.open {
-  max-height:560px; opacity:1; transform:none; pointer-events:all;
+  max-height:80vh;   /* makes it responsive */
+  overflow-y:auto;   /* allows scrolling */
+  opacity:1;
+  transform:none;
+  pointer-events:all;
 }
 .msg-top {
   padding:32px 38px 24px;
