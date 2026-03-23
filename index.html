@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Happy 30th Birthday, Amish ✨</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Jost:wght@200;300;400;500;600&family=Dancing+Script:wght@500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --gold: #C8A84B;
+  --gold-light: #E5C97A;
+  --gold-pale: #F7EDD0;
+  --gold-glow: rgba(200,168,75,0.22);
+  --cream: #FDF8EF;
+  --warm: #FFF9F0;
+  --rose: #D4896A;
+  --rose-pale: #FAEEE7;
+  --charcoal: #26200F;
+  --ink: #3D3020;
+  --muted: #8B7550;
+  --card-bg: #FFFDF8;
+}
+*, *::before, *::after { margin:0; padding:0; box-sizing:border-box; }
+html { scroll-behavior:smooth; }
+body {
+  background: var(--cream);
+  color: var(--ink);
+  font-family: 'Jost', sans-serif;
+  font-weight: 300;
+  overflow-x: hidden;
+}
+
+/* PARTICLES */
+#particles { position:fixed; inset:0; pointer-events:none; z-index:0; overflow:hidden; }
+.particle {
+  position:absolute; border-radius:50%;
+  animation: float-up linear infinite; opacity:0;
+}
+@keyframes float-up {
+  0%   { transform:translateY(100vh) scale(0); opacity:0; }
+  8%   { opacity:.5; transform:scale(1); }
+  92%  { opacity:.25; }
+  100% { transform:translateY(-100px) scale(.3); opacity:0; }
+}
+
+/* MUSIC BTN */
+#music-btn {
+  position:fixed; top:20px; right:20px; z-index:1000;
+  background:rgba(253,248,239,0.88);
+  border:1.5px solid var(--gold);
+  color:var(--gold);
+  padding:8px 18px; border-radius:40px;
+  cursor:pointer;
+  font-family:'Jost',sans-serif;
+  font-size:10px; font-weight:500;
+  letter-spacing:2px; text-transform:uppercase;
+  backdrop-filter:blur(12px);
+  transition:all .3s;
+  box-shadow:0 2px 14px rgba(200,168,75,0.15);
+}
+#music-btn:hover { background:var(--gold-pale); }
+
+/* NAV DOTS */
+#nav {
+  position:fixed; right:18px; top:50%;
+  transform:translateY(-50%);
+  z-index:900;
+  display:flex; flex-direction:column; gap:10px;
+}
+.ndot {
+  width:7px; height:7px; border-radius:50%;
+  border:1.5px solid var(--gold);
+  background:transparent;
+  cursor:pointer; transition:all .3s;
+}
+.ndot.on { background:var(--gold); transform:scale(1.5); }
+
+/* ── HERO ── */
+#hero {
+  position:relative; min-height:100vh;
+  display:flex; align-items:center; justify-content:center;
+  text-align:center;
+  background: radial-gradient(ellipse 90% 70% at 50% 35%, #FFF7DC 0%, #FDF3D2 45%, #F8E8B5 100%);
+  overflow:hidden;
+}
+.hero-orn {
+  position:absolute;
+  font-family:'Cormorant Garamond',serif;
+  color:var(--gold-light); opacity:.45; pointer-events:none;
+}
+.hero-orn.tl { top:44px; left:52px; font-size:3.2rem; }
+.hero-orn.tr { top:44px; right:52px; font-size:3.2rem; }
+.hero-orn.bl { bottom:60px; left:52px; font-size:2rem; }
+.hero-orn.br { bottom:60px; right:52px; font-size:2rem; }
+
+.hero-inner {
+  position:relative; z-index:2; padding:40px 24px;
+  animation: rise .9s cubic-bezier(.22,1,.36,1) both;
+}
+@keyframes rise {
+  from { opacity:0; transform:translateY(48px); }
+  to   { opacity:1; transform:none; }
+}
+.hero-eyebrow {
+  display:inline-flex; align-items:center; gap:10px;
+  font-size:10px; font-weight:500; letter-spacing:4px;
+  text-transform:uppercase; color:var(--rose);
+  margin-bottom:26px;
+  animation: rise .9s .15s both;
+}
+.hero-eyebrow::before, .hero-eyebrow::after {
+  content:''; width:28px; height:1px; background:var(--rose);
+}
+.hero-small {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1rem,2.5vw,1.5rem);
+  font-weight:300; letter-spacing:6px;
+  text-transform:uppercase; color:var(--muted);
+  margin-bottom:8px;
+  animation: rise .9s .25s both;
+}
+.hero-h1 {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(4rem,12vw,8.5rem);
+  font-weight:300; line-height:.92;
+  color:var(--charcoal);
+  animation: rise .9s .35s both;
+}
+.hero-h1 .num {
+  font-style:italic;
+  background:linear-gradient(135deg,#A07A20,#E5C97A,#C8A84B,#F0D882);
+  -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+  background-clip:text; background-size:200%;
+  animation: goldshine 4s linear infinite;
+}
+@keyframes goldshine {
+  0%   { background-position:0% center; }
+  100% { background-position:200% center; }
+}
+.hero-sub {
+  font-family:'Dancing Script',cursive;
+  font-size:clamp(1.2rem,3.5vw,2rem);
+  color:var(--rose); margin-top:18px;
+  animation: rise .9s .5s both;
+}
+.hero-scroll {
+  margin-top:54px;
+  display:flex; flex-direction:column; align-items:center; gap:8px;
+  animation: rise .9s .7s both;
+  color:var(--muted); font-size:9px; letter-spacing:3px; text-transform:uppercase;
+}
+.scroll-bar {
+  width:1px; height:52px;
+  background:linear-gradient(to bottom,var(--gold),transparent);
+  animation:pulsebar 2s ease infinite;
+}
+@keyframes pulsebar { 0%,100%{opacity:.3;} 50%{opacity:1;} }
+
+/* ── SECTION SHELL ── */
+.sec { position:relative; z-index:1; }
+.sec-head { text-align:center; margin-bottom:60px; }
+.sec-tag {
+  font-size:10px; font-weight:500; letter-spacing:4px;
+  text-transform:uppercase; color:var(--gold);
+  margin-bottom:12px; display:block;
+}
+.sec-title {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,5vw,3.4rem);
+  font-weight:300; color:var(--charcoal); line-height:1.2;
+}
+.sec-title i { color:var(--gold); }
+.sec-rule {
+  width:48px; height:1.5px; margin:18px auto 0;
+  background:linear-gradient(90deg,transparent,var(--gold),transparent);
+}
+
+/* ── GALLERY ── */
+#gallery {
+  padding:110px 24px;
+  background:linear-gradient(180deg,var(--cream) 0%,#FFF9EE 100%);
+}
+.gallery-note {
+  font-size:.88rem; color:var(--muted);
+  max-width:460px; margin:14px auto 0;
+  line-height:1.7; text-align:center;
+}
+
+.gallery-grid {
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:18px;
+  max-width:1060px; margin:0 auto;
+}
+@media(max-width:880px) { .gallery-grid { grid-template-columns:repeat(3,1fr); } }
+@media(max-width:580px) { .gallery-grid { grid-template-columns:repeat(2,1fr); } }
+
+.g-card {
+  position:relative; border-radius:16px; overflow:hidden;
+  cursor:pointer; aspect-ratio:3/4;
+  box-shadow:0 5px 24px rgba(44,32,14,.10);
+  border:1.5px solid rgba(200,168,75,.16);
+  transition:transform .35s cubic-bezier(.22,1,.36,1), box-shadow .35s, border-color .3s;
+}
+.g-card:hover {
+  transform:translateY(-10px) scale(1.03);
+  box-shadow:0 18px 48px rgba(200,168,75,.28);
+  border-color:rgba(200,168,75,.5);
+}
+.g-card.active {
+  transform:scale(1.04);
+  box-shadow:0 20px 54px rgba(200,168,75,.38);
+  border-color:var(--gold);
+}
+
+.g-ph {
+  width:100%; height:100%;
+  display:flex; flex-direction:column;
+  align-items:center; justify-content:center;
+  gap:10px; padding:16px; text-align:center;
+  transition:transform .5s ease;
+}
+.g-card:hover .g-ph,
+.g-card.active .g-ph { transform:scale(1.06); }
+
+.g-photo {
+  width:100%; height:100%; object-fit:contain; display:block;
+  transition:transform .5s ease;
+}
+.g-card:hover .g-photo,
+.g-card.active .g-photo { transform:scale(1.09); }
+
+.g-emoji { font-size:2.5rem; }
+.g-pname {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1rem; color:var(--ink); font-weight:400;
+}
+.g-prel {
+  font-size:9px; letter-spacing:2px;
+  text-transform:uppercase; color:var(--muted);
+}
+.g-veil {
+  position:absolute; bottom:0; left:0; right:0; height:50%;
+  background:linear-gradient(to top,rgba(38,32,15,.6),transparent);
+  pointer-events:none;
+}
+.g-lbl {
+  position:absolute; bottom:12px; left:12px; right:12px;
+  color:var(--gold-pale);
+  font-family:'Cormorant Garamond',serif;
+  font-size:.9rem; font-style:italic; pointer-events:none;
+}
+.g-hint {
+  position:absolute; top:10px; right:10px;
+  background:rgba(200,168,75,.85);
+  color:#fff; font-size:9px; letter-spacing:1.5px;
+  text-transform:uppercase; padding:3px 9px;
+  border-radius:20px; opacity:0;
+  transition:opacity .3s; font-family:'Jost';
+}
+.g-card:hover .g-hint { opacity:1; }
+.g-card.active .g-hint { opacity:0; }
+
+/* Message panel */
+#msg-panel {
+  max-width:700px; margin:40px auto 0;
+  background:var(--card-bg);
+  border-radius:22px;
+  border:1px solid rgba(200,168,75,.22);
+  box-shadow:0 10px 48px rgba(44,32,14,.09);
+  overflow:hidden;
+  max-height:0; opacity:0; transform:translateY(18px);
+  transition:max-height .65s cubic-bezier(.22,1,.36,1), opacity .45s ease, transform .45s ease;
+  pointer-events:none;
+}
+#msg-panel.open {
+  max-height:560px; opacity:1; transform:none; pointer-events:all;
+}
+.msg-top {
+  padding:32px 38px 24px;
+  border-bottom:1px solid var(--gold-pale);
+  display:flex; align-items:center; gap:22px;
+}
+.msg-avatar {
+  width:64px; height:64px; border-radius:50%; flex-shrink:0;
+  display:flex; align-items:center; justify-content:center;
+  font-size:1.9rem;
+  background:linear-gradient(135deg,var(--gold-pale),#FFF0C8);
+  border:2px solid var(--gold-light);
+  box-shadow:0 3px 14px rgba(200,168,75,.22);
+}
+.msg-name {
+  font-family:'Dancing Script',cursive;
+  font-size:1.7rem; color:var(--charcoal); line-height:1.1;
+}
+.msg-rel {
+  font-size:10px; letter-spacing:3px; text-transform:uppercase;
+  color:var(--gold); margin-top:3px; font-weight:500;
+}
+.msg-body { padding:28px 38px 34px; }
+.msg-qmark {
+  font-family:'Cormorant Garamond',serif;
+  font-size:4.5rem; color:var(--gold-pale);
+  line-height:.6; display:block; margin-bottom:6px;
+  user-select:none;
+}
+.msg-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.15rem; font-style:italic;
+  color:var(--ink); line-height:1.92;
+}
+@media(max-width:580px) {
+  .msg-top { padding:22px 20px 18px; flex-direction:column; text-align:center; }
+  .msg-body { padding:20px 20px 26px; }
+}
+
+
+
+/* ── WISHES ── */
+#wishes {
+  padding:110px 24px;
+  background:linear-gradient(180deg,var(--cream) 0%,#FFF6E8 100%);
+}
+.wishes-grid {
+  display:grid;
+  grid-template-columns:repeat(auto-fill,minmax(268px,1fr));
+  gap:20px; max-width:1060px; margin:0 auto;
+}
+.w-card {
+  background:white; border-radius:18px;
+  padding:28px 24px 24px;
+  border:1px solid rgba(200,168,75,.12);
+  box-shadow:0 4px 20px rgba(44,32,14,.07);
+  position:relative; overflow:hidden;
+  opacity:0; transform:translateY(20px);
+  transition:opacity .5s ease,transform .5s ease,box-shadow .3s;
+}
+.w-card.vis { opacity:1; transform:none; }
+.w-card:hover { box-shadow:0 12px 38px rgba(200,168,75,.2); transform:translateY(-5px); }
+.w-bg-q {
+  position:absolute; top:-18px; left:8px;
+  font-family:'Cormorant Garamond',serif;
+  font-size:8rem; color:var(--gold-pale);
+  line-height:1; pointer-events:none; user-select:none;
+}
+.w-text {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.04rem; font-style:italic;
+  color:var(--ink); line-height:1.85;
+  position:relative; z-index:1; margin-bottom:18px;
+}
+.w-from { font-family:'Dancing Script',cursive; font-size:1.15rem; color:var(--rose); font-weight:700; }
+.w-rel  { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--gold); margin-top:3px; }
+.w-img-wrap {
+  width: 100%;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 12px;
+  margin-bottom: 16px;
+}
+
+.w-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  border-radius: 12px;
+}
+
+.w-card:hover .w-img {
+  transform: scale(1.08);
+}
+/* ── LETTER ── */
+#letter {
+  padding:110px 24px;
+  background:linear-gradient(135deg,#26200F 0%,#352A16 60%,#26200F 100%);
+  position:relative; overflow:hidden;
+}
+#letter::before {
+  content:''; position:absolute; inset:0;
+  background:
+    radial-gradient(circle at 15% 50%,rgba(200,168,75,.14) 0%,transparent 55%),
+    radial-gradient(circle at 85% 30%,rgba(212,137,106,.10) 0%,transparent 55%);
+}
+.letter-inner {
+  max-width:730px; margin:0 auto; text-align:center;
+  position:relative; z-index:1;
+}
+.letter-tag {
+  font-size:10px; letter-spacing:5px; text-transform:uppercase;
+  color:var(--gold-light); margin-bottom:20px; display:block;
+}
+.letter-h {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(1.8rem,5vw,3.1rem);
+  font-weight:300; color:var(--gold-pale);
+  line-height:1.3; margin-bottom:40px;
+}
+.letter-body {
+  font-family:'Cormorant Garamond',serif;
+  font-size:1.17rem; font-style:italic;
+  color:rgba(253,242,218,.82); line-height:2.05;
+  text-align:left; margin-bottom:40px;
+}
+.letter-body p+p { margin-top:20px; }
+.letter-sign {
+  font-family:'Dancing Script',cursive;
+  font-size:1.9rem; color:var(--gold);
+}
+
+/* ── FINALE ── */
+#finale {
+  padding:130px 24px; text-align:center;
+  background:radial-gradient(ellipse 80% 60% at 50% 45%,#FFF8E0 0%,var(--cream) 100%);
+  position:relative; overflow:hidden;
+}
+.finale-heart { font-size:4rem; animation:throb 1.6s ease infinite; display:block; margin-bottom:30px; }
+@keyframes throb { 0%,100%{transform:scale(1);} 50%{transform:scale(1.22);} }
+.finale-h {
+  font-family:'Cormorant Garamond',serif;
+  font-size:clamp(2rem,6vw,4rem);
+  font-weight:300; color:var(--charcoal);
+  line-height:1.25; margin-bottom:16px;
+}
+.finale-h i { font-style:italic; color:var(--gold); }
+.finale-sub {
+  font-family:'Dancing Script',cursive;
+  font-size:1.65rem; color:var(--rose); margin-bottom:48px;
+}
+.finale-candles {
+  font-size:2.3rem; letter-spacing:7px;
+  animation:flicker 1.8s ease infinite alternate; display:block; margin-bottom:48px;
+}
+@keyframes flicker { from{filter:brightness(1);} to{filter:brightness(1.35) drop-shadow(0 0 12px gold);} }
+.finale-credit {
+  font-size:10px; letter-spacing:3px; text-transform:uppercase; color:var(--muted);
+}
+
+/* REVEAL */
+.reveal { opacity:0; transform:translateY(26px); transition:opacity .6s ease,transform .6s ease; }
+.reveal.vis { opacity:1; transform:none; }
+</style>
+</head>
+<body>
+
+<div id="particles"></div>
+
+<button id="music-btn" onclick="toggleMusic()">♫ Music</button>
+
+<nav id="nav">
+  <div class="ndot on"  onclick="goSec('hero')"></div>
+  <div class="ndot"     onclick="goSec('gallery')"></div>
+  <div class="ndot"     onclick="goSec('timeline')"></div>
+  <div class="ndot"     onclick="goSec('wishes')"></div>
+  <div class="ndot"     onclick="goSec('letter')"></div>
+  <div class="ndot"     onclick="goSec('finale')"></div>
+</nav>
+
+<!-- ═══ HERO ═══ -->
+<section id="hero" class="sec">
+  <span class="hero-orn tl">✦</span>
+  <span class="hero-orn tr">✦</span>
+  <span class="hero-orn bl">❧</span>
+  <span class="hero-orn br">❧</span>
+  <div class="hero-inner">
+    <div class="hero-eyebrow">A Celebration of Life</div>
+    <p class="hero-small">Happy Birthday</p>
+    <h1 class="hero-h1">Amish<br><span class="num">Turns 30</span></h1>
+    <p class="hero-sub">"A journey filled with love, laughter, and unforgettable memories."</p>
+    <div class="hero-scroll">
+      <span>Scroll to explore</span>
+      <div class="scroll-bar"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ GALLERY ═══ -->
+<section id="gallery" class="sec">
+  <div class="sec-head reveal">
+    <span class="sec-tag">✦ Messages of Love ✦</span>
+    <h2 class="sec-title">From the People Who <i>Love You Most</i></h2>
+    <p class="gallery-note">Click any photo below to read their personal message written just for you.</p>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="gallery-grid" id="gallery-grid"></div>
+  <div id="msg-panel">
+    <div class="msg-top">
+      <div class="msg-avatar" id="msg-avatar"></div>
+      <div>
+        <div class="msg-name" id="msg-name"></div>
+        <div class="msg-rel"  id="msg-rel"></div>
+      </div>
+    </div>
+    <div class="msg-body">
+      <span class="msg-qmark">"</span>
+      <p class="msg-text" id="msg-text"></p>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- ═══ WISHES ═══ -->
+<section id="wishes" class="sec">
+  <div class="sec-head reveal">
+    <span class="sec-tag">✦ love ✦</span>
+    <h2 class="sec-title">Words Straight <i>From our Heart</i></h2>
+    <div class="sec-rule"></div>
+  </div>
+  <div class="wishes-grid" id="wishes-grid"></div>
+</section>
+
+<!-- ═══ LETTER ═══ -->
+<section id="letter" class="sec">
+  <div class="letter-inner">
+    <span class="letter-tag">✦ Amish ✦</span>
+    <h2 class="letter-h"> the Most Extraordinary Soul We Have Ever Known</h2>
+    
+    <div class="letter-sign">With all our love, always ♡</div>
+  </div>
+</section>
+
+<!-- ═══ FINALE ═══ -->
+<section id="finale" class="sec">
+  <span class="finale-heart">❤️</span>
+  <h2 class="finale-h">Here's to Many More <i>Beautiful Years</i> Ahead</h2>
+  <p class="finale-sub">May every year be more golden than the last.</p>
+  <span class="finale-candles">🕯️ 🕯️ 🕯️ 🎂 🕯️ 🕯️ 🕯️</span>
+  <p class="finale-credit">Made with love · For Amish · Turning 30 · 2026</p>
+</section>
+
+<audio id="bgm" loop preload="auto">
+  <source src="music/song.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+/* ─── DATA ─── */
+const FAMILY = [
+  {
+    name:"Mummy and pappa ", relation:"", emoji:"🌸",
+    bg:"linear-gradient(145deg,#FFF0E0,#FFE0C8)", photo:"photos/mumndad.jpeg",
+    message:"જન્મદિવસ ની હાર્દિક શુભેચ્છાઓ, બેટા.ભગવાન તને સદાય સુખ, આરોગ્ય અને દીર્ઘ આયુષ્ય આપે.અમારો આશીર્વાદ હંમેશા તારા સાથે છે."
+  },
+
+  {
+    name:"Wifey", relation:"His Person, His Home", emoji:"💍",
+    bg:"linear-gradient(145deg,#FFDDE8,#FFB8CC)", photo:"photos/piku.jpeg",
+    message:"Happy Birthday to the one who tolerates me the most Officially older, but still my baby 😜❤️I pray this year brings you endless happiness, success, and everything your heart desires ✨. Thank you for loving me the way you do and for making my world so special ❤️I love you to the moon and back 🌙My aahoo 🫶💙#Happy30thMyLove ❤️✨"},
+  {
+    name:"Beena", relation:"Eldest Sister", emoji:"🌺",
+    bg:"linear-gradient(145deg,#E8F4FF,#C8E0FF)", photo:"photos/beena.jpeg",
+    message:"Happiest Birthday Amish 🎂 Aaje pan samjatu nathi ke tu kyare aavyo ane kyare 30 years no thai gayo… I still can’t believe it!Taro birth amne aj pan perfectly yaad chhe — savare news mali ke dikro janmiyo chhe, and that was the happiest day of our life ❤️Tu amara mate always the luckiest ane most special chhe. Ae divas ni khushi hu words ma express pan nathi kari shakti.Tari badhi childhood memories aj pan fresh chhe — mummy study karavti hati ane tu sofa par jumping karto 😄, pan pachi badhu by heart pan kari leto!Pehla hu tari sathe badha moments ma hati, ane aaje with you we have pikudi amari life ma cho  — that’s the best gift for us.Aapde hamesha aaj rite sathe rahiye, that’s our wish.Tari happiness ane success ma hamesha amaro blessings sathe rehse."},
+    {
+    name:"Usha", relation:"Second Sister", emoji:"🌼",
+    bg:"linear-gradient(145deg,#F0FFE8,#CCFFB0)", photo:"photos/usha.jpeg",
+    message:"I still remember the day you were born. We were all so excited and happy. It feels like just yesterday — time truly flies. I remember getting the news while I was at the school sports ground.So many childhood memories come to mind as I write this. I remember those afternoons when everyone would be sleeping and you would quietly watch TV on mute for a long time. There are so many such memories that make me smile. Mittal has covered them all in her message 😃Sometimes I see your resemblance in Riyaan — in the way he talks, his sense of humor, and even his short temper at times 🤣… and of course, the love for yummy food!Two beautiful milestones in your life feels worth celebrating every single day — the day you became a CA and the day you married the best of the best. Seeing you and Preksha happy truly makes our hearts full. We are proud of the way you take care of Mom and Dad and how well you understand them.Happy 30th Birthday, dear Amish ♥️Wishing you a year filled with success, happiness, and amazing adventures. We are truly blessed to have you in our lives. Have a wonderful birthday!"},
+
+  {
+    name:"Mittal", relation:"Third Sister", emoji:"🌷",
+    bg:"linear-gradient(145deg,#FFF0F8,#FFD8EE)", photo:"photos/mittu.jpeg",
+    message:"I have spent thirty years looking up to you even though you are my younger brother, and I am not embarrassed about it anymore — it is simply the truth. You have always been the calm in our family's storms, the one who knew what to say and when. You are wise, kind, and so full of love that it spills into everyone around you. I hope turning 30 feels as wonderful as you deserve. Happy birthday, bhai — you are my favourite."
+  },
+  {
+    name:"Nishma", relation:"Fourth Sister", emoji:"🌻",
+    bg:"linear-gradient(145deg,#FFFCE0,#FFF4A0)", photo:"photos/nish.jpeg",
+    message:"Happy birthday amla... can't believe you are 30 already because it still feels like yesterday when we were all kids playing langdi, son saakli and lapa chuupi on terrace, going to garden every wednesday with mummy pappa, panth tithi on every paryushan, 31st dance preparations , watching cricket together. You have become such an amazing person of course with few flaws which i keep telling you 😆😛 I remember how possessive I was for you and still am, always wanted to shield you from the negative things in the world. Even though you still have one degree less than me, you have grown so well in your career, i have to learn from you now Of course, a special mention to the best decision you have ever taken in your life, which is marrying piku. She brings so much joy in our world❤️ PS: a funny story: when you were about 3 years old, I was making you jump from the Sofa and you fell down and got a big bump on your head. I left you there crying 😂 scared that mom will beat me🙏🏼So many times in life i wish to go back to those days where we used to wait from 3 PM to eat Mahalakshmi Samosa🤣 exactly 4 o'clock you used to go down and see uncle make it🤣 poor Divu always finding it spicy🙏🏼 No matter where life takes us, always remember i have you back unconditionally ❤️😍😘"},
+  {
+    name:"Divya", relation:"Youngest Sister", emoji:"🦋",
+    bg:"linear-gradient(145deg,#F0F0FF,#D8D0FF)", photo:"photos/divu.jpeg",
+    message:"Happy Birthday Bhaailuu. When I saw on screen that mittu wished you 30th birthday, i literally checked the calendar to ensure I am reading it right. I still can't believe you just turned 30 but you'll always be my little bro. As we celebrate you today, I want to cherish the beautiful memories from our childhood - watching cartoon network and pogo on sunday mornings, waiting to see that episode of MAD, those festivals preps like holi balloons, ganesh chaturthi decoration, visarjan and juggling between paryushan and building ganpati, making shivaji fort during diwali, 31st December preps, lunches snacks dinners and picnics with OV gang, your sarcastic comments on everything and many more. To most memorable one is on the next day of paryushan when we used to send you to buy prasad vadapaav 😋😆 Those library days omg. I see both you and nishma  flexing your degrees, but always remember I cleared CA in my first attempt, while you and nishma are 2nd attempts 🤣 As I am reflecting back today, i feel grateful that I get to share my beautiful childhood and the memories with you. But I am also looking forward to upcoming events when the little one gets to meet their fun, loving, caring and worlds best MAMA (alongside worlds best MAMI). On this day, I wish nothing but the best for you and looking forward to creating more memories. Happy birthday again ♥️ maa ka laadla 🤪 no matter how far apart we are, I will always trouble you with my tasks and love you unconditionally"},
+  {
+    name:"Krishu", relation:"Niece", emoji:"🌈",
+    bg:"linear-gradient(145deg,#FFF8E0,#FFECAA)", photo:"photos/krishu.jpeg",
+    message:"From our evening runs to sevpuri and appam valas 😄,to travelling together for college and work — every moment with you has been the best! And how can we forget playing goose goose and monkey… still the most fun memories ever Happiest birthday mamu"
+  },
+  {
+    name:"Riyu", relation:"Nephew", emoji:"⚽",
+    bg:"linear-gradient(145deg,#E8F8FF,#AADDFF)", photo:"photos/riyu.jpeg",
+    message:"Happy Birthday, Mama! Wishing you good health, happiness, and  wonderful year ahead ❤️"},
+  {
+    name:"Ada", relation:"Niece", emoji:"🌟",
+    bg:"linear-gradient(145deg,#EDFFF0,#AAFFCC)", photo:"photos/ada.jpeg",
+    message:"Happy Birthday Mama 🎂 Love teasing you all day and giving you chimti 😄🤏You are the most fun Mama ever!"},
+
+    
+{
+  name:"Anu", relation:"Niece", emoji:"🎀",
+    bg:"linear-gradient(145deg,#FFE8F4,#FFBCDC)", photo:"photos/anu.jpeg",
+    message:"Happy Birthday Mamu 🎂 You are the best and coolest Mamu ever! 😄 We love spending time with you and having so much fun together."}
+  
+
+];
+
+
+
+
+
+/* ─── BUILD GALLERY ─── */
+let activeCard = null;
+
+function buildGallery() {
+  const grid = document.getElementById('gallery-grid');
+  FAMILY.forEach((p, i) => {
+    const card = document.createElement('div');
+    card.className = 'g-card';
+    card.dataset.i = i;
+
+    const inner = p.photo
+      ? `<img class="g-photo" src="${p.photo}" alt="${p.name}">`
+      : `<div class="g-ph" style="background:${p.bg}">
+           <span class="g-emoji">${p.emoji}</span>
+           <span class="g-pname">${p.name}</span>
+           <span class="g-prel">${p.relation}</span>
+         </div>`;
+
+    card.innerHTML = `${inner}<div class="g-veil"></div><div class="g-lbl">${p.name}</div><div class="g-hint">Open ↓</div>`;
+    card.addEventListener('click', () => openMsg(i, card));
+    grid.appendChild(card);
+  });
+}
+
+function openMsg(i, card) {
+  const p = FAMILY[i];
+  const panel = document.getElementById('msg-panel');
+
+  if (activeCard && activeCard !== card) activeCard.classList.remove('active');
+
+  if (activeCard === card) {
+    card.classList.remove('active');
+    panel.classList.remove('open');
+    activeCard = null;
+    return;
+  }
+
+  activeCard = card;
+  card.classList.add('active');
+
+  document.getElementById('msg-avatar').textContent = p.emoji;
+  document.getElementById('msg-name').textContent   = p.name;
+  document.getElementById('msg-rel').textContent    = p.relation;
+  document.getElementById('msg-text').textContent   = p.message;
+
+  panel.classList.remove('open');
+  void panel.offsetWidth; // reflow
+  panel.classList.add('open');
+
+  setTimeout(() => panel.scrollIntoView({ behavior:'smooth', block:'nearest' }), 100);
+}
+
+const WISHES = [
+  {
+    text: "From a family of 7 to a beautiful 18 today and one more loaading… 🥹❤️ Watching this journey has been nothing short of magical. From that little baby boy who brought so much joy into our lives to the person who now holds this entire family together with love — you have grown into someone truly special. Every phase of your life has only added more happiness to ours.",
+    from: "Your Family",
+    rel: "From Then to Now",
+    img: "photos/hum6.jpeg"
+  },
+  {
+    text: "From being our little baby boy to now standing on your wedding day, starting your own beautiful journey… 💍✨ it’s been a story full of love, growth, and unforgettable memories. Watching you find your person and build your own world has been the most heartwarming feeling. No matter how much life changes, you’ll always be our favorite person ❤️",
+    from: "With Endless Love",
+    rel: "Your Journey",
+    img: "photos/brosis.jpeg"
+  },
+  {
+  text: "Happy 30th to the only sala of 5 Jijus 😎 Surviving all of us is your biggest achievement so far 🤣 Stay awesome!                                                                              ",
+  from: "All Your Jijus 😎",
+  rel: "The Cool Gang",
+  img: "photos/boys.jpeg"
+}
+];
+
+/* ─── BUILD WISHES ─── */
+function buildWishes() {
+  const grid = document.getElementById('wishes-grid');
+
+  WISHES.forEach((w, i) => {
+    const c = document.createElement('div');
+    c.className = 'w-card';
+    c.style.transitionDelay = (i * 65) + 'ms';
+
+    c.innerHTML = `
+      <div class="w-bg-q">"</div>
+
+      ${w.img ? `
+        <div class="w-img-wrap">
+          <img src="${w.img}" class="w-img">
+        </div>
+      ` : ""}
+
+      <p class="w-text">${w.text}</p>
+      <div class="w-from">${w.from}</div>
+      <div class="w-rel">${w.rel}</div>
+    `;
+
+    grid.appendChild(c);
+  });
+}
+
+/* ─── PARTICLES ─── */
+function spawnParticles() {
+  const c = document.getElementById('particles');
+  const cols = ['#C8A84B','#E5C97A','#F7EDD0','#D4896A','#FFD700','#FFC0CB'];
+  for (let i = 0; i < 30; i++) {
+    const el = document.createElement('div');
+    el.className = 'particle';
+    const s = 4 + Math.random() * 9;
+    el.style.cssText = `
+      left:${Math.random()*100}%;
+      width:${s}px;height:${s}px;
+      background:${cols[Math.floor(Math.random()*cols.length)]};
+      animation-duration:${11+Math.random()*18}s;
+      animation-delay:${Math.random()*14}s;
+      border-radius:${Math.random()>.5?'50%':'2px'};
+    `;
+    c.appendChild(el);
+  }
+}
+
+/* ─── OBSERVER ─── */
+function initObserver() {
+  const io = new IntersectionObserver(e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }), { threshold:.15 });
+  document.querySelectorAll('.reveal,.tl-row,.w-card').forEach(el => io.observe(el));
+}
+
+/* ─── NAV DOTS ─── */
+function goSec(id) { document.getElementById(id).scrollIntoView({behavior:'smooth'}); }
+function initNav() {
+  const ids  = ['hero','gallery','timeline','wishes','letter','finale'];
+  const dots = document.querySelectorAll('.ndot');
+  const io   = new IntersectionObserver(e => e.forEach(x => {
+    if (x.isIntersecting) {
+      dots.forEach(d => d.classList.remove('on'));
+      const idx = ids.indexOf(x.target.id);
+      if (idx > -1) dots[idx].classList.add('on');
+    }
+  }), { threshold:.4 });
+  ids.forEach(id => { const el=document.getElementById(id); if(el) io.observe(el); });
+}
+
+/* ─── MUSIC ─── */
+let musicOn = true;
+
+function toggleMusic() {
+  const a = document.getElementById('bgm');
+  const b = document.getElementById('music-btn');
+
+  if (!a) {
+    console.log("Audio not found");
+    return;
+  }
+
+  if (!musicOn) {
+    a.play().then(() => {
+      musicOn = true;
+      b.textContent = '♫ On';
+    }).catch(err => {
+      console.log("Play failed:", err);
+      alert("Tap again to enable music 🎵");
+    });
+  } else {
+    a.pause();
+    musicOn = false;
+    b.textContent = '♫ Music';
+  }
+}
+
+/* ─── INIT ─── */
+buildGallery();
+
+buildWishes();
+spawnParticles();
+initObserver();
+initNav();
+</script>
+</body>
+</html>
